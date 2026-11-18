@@ -6,7 +6,7 @@
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        content: `Nueva visita en **${window.location.href}** (${new Date().toLocaleString()})`
+        content: `Nueva visita (${new Date().toLocaleString()})`
       })
     }).catch((err) => console.error("Error al enviar webhook:", err));
   });
