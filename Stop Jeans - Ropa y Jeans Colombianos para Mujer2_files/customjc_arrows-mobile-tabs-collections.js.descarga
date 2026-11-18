@@ -1,0 +1,35 @@
+document.addEventListener("DOMContentLoaded",function(){const style=`
+        .customjc-hdt-slider-prev-tabs,
+        .customjc-hdt-slider-next-tabs {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 50;
+            background: transparent;
+            border: none;
+            width: 26px;
+            height: 26px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .customjc-hdt-slider-prev-tabs {
+            left: 0px;
+            background-image: url('https://cdn.shopify.com/s/files/1/0715/4719/1548/files/icon__customjc-hdt-slider-prev_46a01b55-ad20-485e-8378-9995d1949657.png');
+        }
+        .customjc-hdt-slider-next-tabs {
+            right: 0px;
+            background-image: url('https://cdn.shopify.com/s/files/1/0715/4719/1548/files/icon__customjc-hdt-slider-next_6f897e6c-b618-4f41-9647-a9074bb4500a.png');
+        }
+        @media (max-width: 767px) {
+            .customjc-hdt-slider-prev-tabs,
+            .customjc-hdt-slider-next-tabs {
+                display: flex !important;
+            }
+        }
+    `,styleElement=document.createElement("style");styleElement.textContent=style,document.head.appendChild(styleElement);const sliderContainer=document.querySelector(".customjc__hdt-tabs-slider .customjc__hdt-slider__viewport .hdt-slider__container");if(sliderContainer){const sliderViewport=sliderContainer.parentElement;sliderViewport.style.position="relative";let prevButton=sliderViewport.querySelector(".customjc-hdt-slider-prev-tabs"),nextButton=sliderViewport.querySelector(".customjc-hdt-slider-next-tabs");prevButton||(prevButton=document.createElement("button"),prevButton.className="customjc-hdt-slider-prev-tabs",sliderViewport.appendChild(prevButton)),nextButton||(nextButton=document.createElement("button"),nextButton.className="customjc-hdt-slider-next-tabs",sliderViewport.appendChild(nextButton)),console.log("Prev Button:",prevButton),console.log("Next Button:",nextButton);const totalItems=sliderContainer.querySelectorAll(".hdt-slider__slide").length,itemsToShow=2;let currentIndex=0;const updateSliderPosition=()=>{const itemWidth=50/itemsToShow,translateValue=currentIndex*itemWidth;sliderContainer.style.transform=`translateX(-${translateValue}%)`};updateSliderPosition(),prevButton.addEventListener("click",()=>{currentIndex=currentIndex-itemsToShow,currentIndex<0&&(currentIndex=totalItems-itemsToShow),updateSliderPosition()}),nextButton.addEventListener("click",()=>{currentIndex=currentIndex+itemsToShow,currentIndex>totalItems-itemsToShow&&(currentIndex=0),updateSliderPosition()})}else console.error("No se encontr\xF3 el contenedor del slider con el identificador especificado.")});
+//# sourceMappingURL=/cdn/shop/t/33/assets/customjc_arrows-mobile-tabs-collections.js.map?v=65444378054109212791776971673

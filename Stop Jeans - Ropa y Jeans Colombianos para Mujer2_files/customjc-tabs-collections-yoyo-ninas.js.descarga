@@ -1,0 +1,38 @@
+document.addEventListener("DOMContentLoaded",function(){const style=`
+        .customjc-hdt-slider-prev,
+        .customjc-hdt-slider-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            background: transparent;
+            border: none;
+            width: 26px;
+            height: 26px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .customjc-hdt-slider-prev {
+            left: 0px;
+            background-image: url('https://cdn.shopify.com/s/files/1/0715/4719/1548/files/icon__customjc-hdt-slider-prev.png');
+        }
+
+        .customjc-hdt-slider-next {
+            right: 0px;
+            background-image: url('https://cdn.shopify.com/s/files/1/0715/4719/1548/files/icon__customjc-hdt-slider-next.png');
+        }
+
+        @media (max-width: 767px) {
+            .customjc-hdt-slider-prev,
+            .customjc-hdt-slider-next {
+                display: flex;
+            }
+        }
+    `,styleElement=document.createElement("style");styleElement.textContent=style,document.head.appendChild(styleElement);const sliderContainer=document.querySelector("#Slider-template--18417426530556__tabs_collections_carousel_rkBahX .hdt-slider__viewport .hdt-slider__container");if(sliderContainer){const sliderViewport=sliderContainer.parentElement;sliderViewport.style.position="relative";let prevButton=sliderViewport.querySelector(".customjc-hdt-slider-prev"),nextButton=sliderViewport.querySelector(".customjc-hdt-slider-next");prevButton||(prevButton=document.createElement("button"),prevButton.className="customjc-hdt-slider-prev",sliderViewport.appendChild(prevButton)),nextButton||(nextButton=document.createElement("button"),nextButton.className="customjc-hdt-slider-next",sliderViewport.appendChild(nextButton));const totalItems=sliderContainer.querySelectorAll(".hdt-slider__slide").length,itemsToShow=2;let currentIndex=0;const updateSliderPosition=()=>{const itemWidth=100/itemsToShow,translateValue=currentIndex*itemWidth;sliderContainer.style.transform=`translateX(-${translateValue}%)`};updateSliderPosition(),prevButton.addEventListener("click",()=>{currentIndex=Math.max(currentIndex-1,0),updateSliderPosition()}),nextButton.addEventListener("click",()=>{currentIndex=Math.min(currentIndex+1,totalItems-itemsToShow),updateSliderPosition()})}else console.error("No se encontr\xF3 el contenedor del slider con el identificador especificado.")});
+//# sourceMappingURL=/cdn/shop/t/33/assets/customjc-tabs-collections-yoyo-ninas.js.map?v=156062489498612386181776971673
